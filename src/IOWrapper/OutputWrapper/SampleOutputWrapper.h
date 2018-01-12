@@ -26,7 +26,8 @@
 #include "boost/thread.hpp"
 #include "util/MinimalImage.h"
 #include "IOWrapper/Output3DWrapper.h"
-
+//#include <ros/ros.h>
+//#include "std_msgs/String.h"
 
 
 #include "FullSystem/HessianBlocks.h"
@@ -45,10 +46,13 @@ namespace IOWrap
 
 class SampleOutputWrapper : public Output3DWrapper
 {
+private:
+    std::vector<SE3> cameraPoses;
 public:
         inline SampleOutputWrapper()
         {
             printf("OUT: Created SampleOutputWrapper\n");
+            cameraPoses = {};
         }
 
         virtual ~SampleOutputWrapper()
@@ -104,9 +108,14 @@ public:
                    frame->incoming_id,
                    frame->timestamp,
                    frame->id);
+            cameraPoses.push_back(frame->camToWorld);
+            std::cout << frame->camToWorld.data() << std::endl;
             std::cout << frame->camToWorld.matrix3x4() << "\n";
         }
 
+        virtual std::vector<SE3>* getCameraPose(){
+            return &cameraPoses;
+        }
 
         virtual void pushLiveFrame(FrameHessian* image)
         {

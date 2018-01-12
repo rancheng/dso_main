@@ -173,7 +173,7 @@ public:
         virtual void pushLiveFrame(FrameHessian* image) {}
 
 
-
+        virtual std::vector<SE3>* getCameraPose(){}
 
         /* called once after a new keyframe is created, with the color-coded, forward-warped inverse depthmap for that keyframe,
          * which is used for initial alignment of future frames. Meant for visualization.
