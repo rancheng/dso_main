@@ -149,6 +149,8 @@ public:
 	void debugPlot(std::string name);
 
 	void printFrameLifetimes();
+
+    FrameHessian* getFrameHessian();
 	// contains pointers to active frames
 
     std::vector<IOWrap::Output3DWrapper*> outputWrapper;

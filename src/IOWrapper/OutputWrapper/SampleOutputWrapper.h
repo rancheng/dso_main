@@ -109,7 +109,7 @@ public:
                    frame->timestamp,
                    frame->id);
             cameraPoses.push_back(frame->camToWorld);
-            std::cout << frame->camToWorld.data() << std::endl;
+            //std::cout << frame->camToWorld.unit_quaternion() << std::endl;
             std::cout << frame->camToWorld.matrix3x4() << "\n";
         }
 

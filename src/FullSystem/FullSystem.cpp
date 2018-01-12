@@ -888,22 +888,23 @@ void FullSystem::addActiveFrame( ImageAndExposure* image, int id )
 		}
 
 
-
+        std::cout << "---------FrameHessians size(): " << frameHessians.size() << "-----------------" <<std::endl;
 
         for(IOWrap::Output3DWrapper* ow : outputWrapper)
 		{
 			ow->publishCamPose(fh->shell, &Hcalib);
-
 		}
-
-
-
 
 		lock.unlock();
 		deliverTrackedFrame(fh, needToMakeKF);
 		return;
 	}
 }
+    FrameHessian* FullSystem::getFrameHessian(){
+		if(frameHessians.size()!=0)
+			return frameHessians.back();
+    }
+
 void FullSystem::deliverTrackedFrame(FrameHessian* fh, bool needKF)
 {
 

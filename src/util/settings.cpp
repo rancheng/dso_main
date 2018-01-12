@@ -181,9 +181,9 @@ float freeDebugParam1 = 1;
 float freeDebugParam2 = 1;
 float freeDebugParam3 = 1;
 float freeDebugParam4 = 1;
-float freeDebugParam5 = 1;
+float freeDebugParam5 = 4;
 
-
+float freeDebugParam6 = 1;
 
 bool disableReconfigure=false;
 bool debugSaveImages = false;

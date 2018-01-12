@@ -183,7 +183,7 @@ namespace dso
 				if(c>255) c=255;
 				img->at(i) = Vec3b(c,c,c);
 			}
-
+			std::cout<< "freeDebugParam5+0.5" << (int)(freeDebugParam5+0.5f) << std::endl;
 			if((int)(freeDebugParam5+0.5f) == 0)
 			{
 				for(PointHessian* ph : frameHessians[f]->pointHessians)
